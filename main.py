@@ -5,6 +5,7 @@ from utils import (
     ID_TO_NAME_DICT
 )
 
+ELEMENT_AMOUNT = 15 # Remove magic number
 json_resp = get_request_json()
 unordered_list = []
 
@@ -14,9 +15,5 @@ for item_id, item_dict in json_resp.items():
 
 ordered_list = sorted(unordered_list, key=lambda item_dict: item_dict[1])
 
-counter = 15
-for elem in ordered_list:
-    print(elem)
-    counter -= 1
-    if counter == 0:
-        break
+for item in ordered_list[0: ELEMENT_AMOUNT]:
+    print(item)
